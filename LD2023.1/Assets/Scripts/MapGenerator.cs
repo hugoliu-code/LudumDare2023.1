@@ -30,6 +30,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] int mapSize = 1000;
     void Start()
     {
+
         rend = GetComponent<Renderer>();
 
         // Set up the texture and a Color array to hold pixels during processing.
@@ -66,11 +67,13 @@ public class MapGenerator : MonoBehaviour
 
     void Generate()
     {
-        for(int a = 0; a<mapSize; a++)
+        xOrg = UnityEngine.Random.Range(0, 1000);
+        yOrg = UnityEngine.Random.Range(0, 1000);
+        for (int a = 0; a<mapSize; a++)
         {
             for(int b = 0; b < mapSize; b++)
             {
-                float2 location = new float2(a*scale*100, b*scale*100); //extra 100 to make it more random
+                float2 location = new float2(a*scale*100+xOrg, b*scale*100+yOrg); //extra 100 to make it more random
                 float sample = noise.cellular(location).x;
                 //Debug.Log(sample);
                 if(sample > generationMargin)
@@ -86,7 +89,7 @@ public class MapGenerator : MonoBehaviour
         float randX = UnityEngine.Random.Range(-0.5f, 0.5f); //slightly random position change so it doesn't look like a grid
         float randY = UnityEngine.Random.Range(-0.5f, 0.5f);
         float centering = mapSize * spread * 0.5f;
-        Instantiate(resourceObject, new Vector3(x*spread+randX-centering, y*spread+randY-centering, 0), Quaternion.identity, this.transform);
+        Instantiate(resourceObject, new Vector3(x*spread+randX-centering , y*spread+randY-centering , 0), Quaternion.identity, this.transform);
     }
     void Update()
     {
