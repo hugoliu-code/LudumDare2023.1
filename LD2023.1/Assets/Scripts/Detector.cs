@@ -20,9 +20,20 @@ public class Detector : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.CompareTag("Lure") && !chaserEnemy.currentTurret.CompareTag("Lure"))
+        if(collision.CompareTag("Lure"))
         {
-            chaserEnemy.currentTurret = collision.gameObject;
+            if(chaserEnemy.currentTurret != null)
+            {
+                if (!chaserEnemy.CompareTag("Lure"))
+                {
+                    chaserEnemy.currentTurret = collision.gameObject;
+                }
+            }
+            else
+            {
+                chaserEnemy.currentTurret = collision.gameObject;
+            }
+            
         }
         else if (collision.CompareTag("Turret") && chaserEnemy.currentTurret == null)
         {

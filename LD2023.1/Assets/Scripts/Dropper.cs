@@ -10,7 +10,9 @@ public class Dropper : MonoBehaviour
 
     public GameObject harvester;
     public GameObject turret;
+    public GameObject lure;
 
+    [SerializeField] float lureLifespan;
     [SerializeField] float turretLifespan;
     [SerializeField] float harvesterLifespan;
 
@@ -37,5 +39,12 @@ public class Dropper : MonoBehaviour
         GameObject TurretIns = Instantiate(turret, player.position, player.rotation);
         TurretIns.GetComponent<Rigidbody2D>().AddForce(TurretIns.transform.right*2500000);
         Destroy(TurretIns, turretLifespan);
+    }
+
+    public void DropLure()
+    {
+        GameObject LureIns = Instantiate(lure, player.position, player.rotation);
+        LureIns.GetComponent<Rigidbody2D>().AddForce(LureIns.transform.right * 2500000);
+        Destroy(LureIns, turretLifespan);
     }
 }

@@ -5,8 +5,10 @@ using UnityEngine.UI;
 public class CanvasController : MonoBehaviour
 {
     public Dropper dropper;
-    public GameObject imageGroup;
-    private bool imageGroupActive = false;
+    public GameObject buildMenu;
+    public GameObject upgradeMenu;
+    private bool buildMenuActive = false;
+    private bool upgradeMenuActive = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,21 +38,57 @@ public class CanvasController : MonoBehaviour
         }
 
     }
+    public void DropLure()
+    {
+        if (GameManager.Instance.bone >= 20)
+        {
+            dropper.DropLure();
+            GameManager.Instance.bone -= 20;
+        }
+
+    }
+
 
     private void CanvasControl()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("ENTER");
-            if(imageGroupActive == false)
+            if(buildMenuActive == false)
             {
-                imageGroup.SetActive(true);
-                imageGroupActive = true;
+                upgradeMenu.SetActive(false);
+                upgradeMenuActive = false;
+
+                buildMenu.SetActive(true);
+                buildMenuActive = true;
             }
             else
             {
-                imageGroup.SetActive(false);
-                imageGroupActive = false;
+                upgradeMenu.SetActive(false);
+                upgradeMenuActive = false;
+
+                buildMenu.SetActive(false);
+                buildMenuActive = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("ENTER");
+            if (upgradeMenuActive == false)
+            {
+                buildMenu.SetActive(false);
+                buildMenuActive = false;
+
+                upgradeMenu.SetActive(true);
+                upgradeMenuActive = true;
+            }
+            else
+            {
+                buildMenu.SetActive(false);
+                buildMenuActive = false;
+
+                upgradeMenu.SetActive(false);
+                upgradeMenuActive = false;
             }
         }
     }
