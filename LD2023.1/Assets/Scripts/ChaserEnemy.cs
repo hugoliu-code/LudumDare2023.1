@@ -27,10 +27,21 @@ public class ChaserEnemy : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Turret turret = collision.collider.GetComponent<Turret>();
-        if (turret)
+        if(collision.gameObject.tag == "Turret")
         {
-            turret.TurretTakeHit(10);
+            Turret turret = collision.collider.GetComponent<Turret>();
+            if (turret)
+            {
+                turret.TurretTakeHit(10);
+            }
+        }
+        if(collision.gameObject.tag == "Lure")
+        {
+            Lure lure = collision.collider.GetComponent<Lure>();
+            if (lure)
+            {
+                lure.LureTakeHit(10);
+            }
         }
     }
 }

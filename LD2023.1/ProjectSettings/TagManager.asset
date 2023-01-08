@@ -8,6 +8,7 @@ TagManager:
   - Resource
   - Game Manager
   - Turret
+  - Lure
   layers:
   - Default
   - TransparentFX
