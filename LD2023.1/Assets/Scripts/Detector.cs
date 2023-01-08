@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Detector : MonoBehaviour
 {
-    public bool followingTurret = false;
     public Transform turretPos;
     [SerializeField] ChaserEnemy chaserEnemy;
     // Start is called before the first frame update
@@ -22,7 +21,7 @@ public class Detector : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.CompareTag("Turret") && followingTurret == false)
+        if (collision.CompareTag("Turret") && chaserEnemy.currentTurret == null)
         {
             chaserEnemy.currentTurret = collision.gameObject;
         }
