@@ -27,6 +27,7 @@ public class MapGenerator : MonoBehaviour
     //Margin for placing
     [SerializeField] float generationMargin;
     [SerializeField] float spread;
+    [SerializeField] int mapSize = 1000;
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -65,9 +66,9 @@ public class MapGenerator : MonoBehaviour
 
     void Generate()
     {
-        for(int a = 0; a<100; a++)
+        for(int a = 0; a<mapSize; a++)
         {
-            for(int b = 0; b < 100; b++)
+            for(int b = 0; b < mapSize; b++)
             {
                 float2 location = new float2(a*scale*100, b*scale*100); //extra 100 to make it more random
                 float sample = noise.cellular(location).x;
@@ -84,7 +85,8 @@ public class MapGenerator : MonoBehaviour
 
         float randX = UnityEngine.Random.Range(-0.5f, 0.5f); //slightly random position change so it doesn't look like a grid
         float randY = UnityEngine.Random.Range(-0.5f, 0.5f);
-        Instantiate(resourceObject, new Vector3(x*spread+randX, y*spread+randY, 0), Quaternion.identity, this.transform);
+        float centering = mapSize * spread * 0.5f;
+        Instantiate(resourceObject, new Vector3(x*spread+randX-centering, y*spread+randY-centering, 0), Quaternion.identity, this.transform);
     }
     void Update()
     {

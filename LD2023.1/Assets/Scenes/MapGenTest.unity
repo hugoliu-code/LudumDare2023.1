@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 510427142}
   - component: {fileID: 510427144}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MapGeneration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   resourceObject: {fileID: 2353979130171895604, guid: 4e261c08a2a03ce4fa48afd264759e5f, type: 3}
   generationMargin: 0.94
   spread: 2
+  mapSize: 1000
 --- !u!4 &510427143
 Transform:
   m_ObjectHideFlags: 0
