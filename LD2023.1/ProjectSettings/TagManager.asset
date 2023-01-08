@@ -7,16 +7,17 @@ TagManager:
   - Enemy
   - Resource
   - Game Manager
+  - Turret
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - TurretLayer
   - Water
   - UI
+  - PlayerLayer
   - 
-  - 
-  - 
+  - EnemyLayer
   - 
   - 
   - 
@@ -43,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Resource
+    uniqueID: 2423816937
+    locked: 0
+  - name: Enemy
+    uniqueID: 639165479
+    locked: 0
+  - name: Turrets
+    uniqueID: 2023499223
+    locked: 0
+  - name: Player
+    uniqueID: 2347472759
     locked: 0

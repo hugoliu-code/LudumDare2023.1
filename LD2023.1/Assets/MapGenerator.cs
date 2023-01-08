@@ -26,6 +26,7 @@ public class MapGenerator : MonoBehaviour
 
     //Margin for placing
     [SerializeField] float generationMargin;
+    [SerializeField] float spread;
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -64,9 +65,9 @@ public class MapGenerator : MonoBehaviour
 
     void Generate()
     {
-        for(int a = 0; a<10000; a++)
+        for(int a = 0; a<100; a++)
         {
-            for(int b = 0; b < 10000; b++)
+            for(int b = 0; b < 100; b++)
             {
                 float2 location = new float2(a*scale, b*scale);
                 float sample = noise.cellular(location).x;
@@ -80,7 +81,7 @@ public class MapGenerator : MonoBehaviour
     }
     void PlaceResource(int x, int y)
     {
-        Instantiate(resourceObject, new Vector3(x, y, 0), Quaternion.identity);
+        Instantiate(resourceObject, new Vector3(x*spread, y*spread, 0), Quaternion.identity);
     }
     void Update()
     {

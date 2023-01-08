@@ -28,14 +28,14 @@ public class Dropper : MonoBehaviour
     public void DropHarvester()
     {
         GameObject HarvesterIns = Instantiate(harvester, player.position, player.rotation);
-        HarvesterIns.GetComponent<Rigidbody2D>().AddForce(HarvesterIns.transform.right*500);
+        HarvesterIns.GetComponent<Rigidbody2D>().AddForce(HarvesterIns.transform.right*150);
         Destroy(HarvesterIns, harvesterLifespan);
     }
 
     public void DropTurret()
     {
         GameObject TurretIns = Instantiate(turret, player.position, player.rotation);
-        TurretIns.GetComponent<Rigidbody2D>().AddForce(TurretIns.transform.right*500);
+        TurretIns.GetComponent<Rigidbody2D>().AddForce(TurretIns.transform.right*2500000);
         Destroy(TurretIns, turretLifespan);
     }
 }

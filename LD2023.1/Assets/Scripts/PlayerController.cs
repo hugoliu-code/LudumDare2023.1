@@ -5,33 +5,24 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] Dropper dropper;
-
+    private Animator anim;
     private Rigidbody2D rb;
-    // Start is called before the first frame update
+
+    private enum State { idle, running }
+    private State state = State.idle;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        Drop();
+        anim.SetInteger("state", (int)state);
         Movement();
+        AnimationState();
     }
-
-    private void Drop()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            dropper.DropHarvester();
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            dropper.DropTurret();
-        }
-    }
+  
     private void Movement()
     {
         Vector2 direction = new Vector2(0, 0);
@@ -56,5 +47,17 @@ public class PlayerController : MonoBehaviour
             direction.x = 1;
         }
         rb.velocity = direction.normalized * speed;
+    }
+
+    private void AnimationState()
+    {
+        if (Mathf.Abs(rb.velocity.x) > 0 || Mathf.Abs(rb.velocity.y) > 0)
+        {
+            state = State.running;
+        }
+        else
+        {
+            state = State.idle;
+        }
     }
 }

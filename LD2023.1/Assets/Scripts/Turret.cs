@@ -8,22 +8,42 @@ public class Turret : MonoBehaviour
     public GameObject bullet;
     public float fireRate;
     public float force;
+    public GameObject gun;
+    public Transform shootPoint;
 
+    private bool invincible;
     private float nextShot = 0f; 
     private Transform target;
-    private Transform shootPoint;
     private bool detected = false;
     private Vector2 direction;
 
+    [SerializeField] LayerMask enemyLayer;
+
+    public float hitpoints;
+    public float maxHitpoints;
+    public TurretHealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        shootPoint = gameObject.transform;
         InvokeRepeating("Target", 0f, 1f);
+        hitpoints = maxHitpoints;
+        healthBar.SetHealth(hitpoints, maxHitpoints);
+    }
+    public void TurretTakeHit(float damage)
+    {
+        if(invincible == false)
+        {
+            StartCoroutine(Invincible());
+            hitpoints -= damage;
+            healthBar.SetHealth(hitpoints, maxHitpoints);
+            if (hitpoints <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
-    // Update is called once per frame
     private void Target()
     {
         float smallest = Mathf.Infinity;
@@ -42,11 +62,7 @@ public class Turret : MonoBehaviour
                 smallest = next;
                 smallestIndex = i;
             }
-        }
-        if(enemies.Length > 0)
-        {
-            target = enemies[smallestIndex].transform;
-            Debug.Log("Target Switched");
+        target = enemies[smallestIndex].transform;
         }
     }
     void Update()
@@ -63,7 +79,8 @@ public class Turret : MonoBehaviour
         }
         Vector2 targetPos = target.position;
         direction = targetPos - (Vector2)transform.position;
-        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, direction, range);
+        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, direction, range, enemyLayer);
+        detected = false;
         if (rayInfo)
         {
             if (rayInfo.collider.gameObject.tag == "Enemy")
@@ -77,6 +94,7 @@ public class Turret : MonoBehaviour
         }
         if (detected)
         {
+            gun.transform.right = direction;
             if (Time.time > nextShot)
             {
                 nextShot = Time.time + 1 / fireRate;
@@ -91,12 +109,18 @@ public class Turret : MonoBehaviour
     {
         GameObject BulletIns = Instantiate(bullet, shootPoint.position, Quaternion.identity);
         BulletIns.GetComponent<Rigidbody2D>().AddForce(direction * force);
-        Destroy(BulletIns, 1);
+        Destroy(BulletIns, 0.5f);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, range);
         
+    }
+    private IEnumerator Invincible()
+    {
+        invincible = true;
+        yield return new WaitForSeconds(0.75f);
+        invincible = false;
     }
 }

@@ -5,15 +5,11 @@ using UnityEngine;
 public class Harvester : MonoBehaviour
 {
     public float range;
-
     private Resource target;
-    private bool detected = false;
-    private Vector2 direction;
-    private RaycastHit2D rayInfo;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Target", 4);
+        Invoke("Target", 1.5f);
         //HarvesterAI();
     }
 

@@ -20,8 +20,9 @@ public class Bullet : MonoBehaviour
         var enemy = collision.GetComponent<Enemy>();
         if (enemy)
         {
-            enemy.TakeHit(5);
+            enemy.EnemyTakeHit(5);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
 }

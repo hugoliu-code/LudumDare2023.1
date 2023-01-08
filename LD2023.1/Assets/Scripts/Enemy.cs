@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void TakeHit(float damage)
+    public void EnemyTakeHit(float damage)
     {
         hitpoints -= damage;
         if (hitpoints <= 0)
