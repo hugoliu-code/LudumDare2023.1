@@ -9,6 +9,7 @@ TagManager:
   - Game Manager
   - Turret
   - Lure
+  - Matter
   layers:
   - Default
   - TransparentFX
