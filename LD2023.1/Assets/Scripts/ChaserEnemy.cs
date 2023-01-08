@@ -7,22 +7,26 @@ public class ChaserEnemy : MonoBehaviour
     private Transform playerTransform;
     [SerializeField] float speed;
     [SerializeField] Detector detector;
-
+    Rigidbody2D rb;
     public GameObject currentTurret;
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
-        if (currentTurret == null)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, currentTurret.transform.position, speed * Time.deltaTime);
-        }
+        //transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+        Vector2 direction = (playerTransform.position - transform.position).normalized * speed * 1000 * Time.deltaTime;
+        rb.velocity = direction;
+        //if (currentTurret == null)
+        //{
+        //    transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+        //}
+        //else
+        //{
+        //    transform.position = Vector2.MoveTowards(transform.position, currentTurret.transform.position, speed * Time.deltaTime);
+        //}
 
     }
     private void OnCollisionStay2D(Collision2D collision)

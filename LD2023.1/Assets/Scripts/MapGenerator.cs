@@ -34,9 +34,9 @@ public class MapGenerator : MonoBehaviour
         rend = GetComponent<Renderer>();
 
         // Set up the texture and a Color array to hold pixels during processing.
-        noiseTex = new Texture2D(pixWidth, pixHeight);
-        pix = new Color[noiseTex.width * noiseTex.height];
-        rend.material.mainTexture = noiseTex;
+        //noiseTex = new Texture2D(pixWidth, pixHeight);
+        //pix = new Color[noiseTex.width * noiseTex.height];
+        //rend.material.mainTexture = noiseTex;
     }
 
     void CalcNoise()
@@ -93,7 +93,7 @@ public class MapGenerator : MonoBehaviour
     }
     void Update()
     {
-        CalcNoise();
+        //CalcNoise();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject[] resourceList = GameObject.FindGameObjectsWithTag("Resource");
