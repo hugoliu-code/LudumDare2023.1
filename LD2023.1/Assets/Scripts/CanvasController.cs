@@ -7,11 +7,9 @@ public class CanvasController : MonoBehaviour
     public Dropper dropper;
     public GameObject imageGroup;
     private bool imageGroupActive = false;
-    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -21,20 +19,20 @@ public class CanvasController : MonoBehaviour
     }
     public void DropTurret()
     {
-        if (gameManager.bone >= 5 && gameManager.ichor >= 10)
+        if (GameManager.Instance.bone >= 5 && GameManager.Instance.ichor >= 10)
         {
             dropper.DropTurret();
-            gameManager.bone -= 5;
-            gameManager.ichor -= 10;
+            GameManager.Instance.bone -= 5;
+            GameManager.Instance.ichor -= 10;
         }
     }
     public void DropHarvester()
     {
-        if (gameManager.bone >= 5 && gameManager.ichor >= 5)
+        if (GameManager.Instance.bone >= 5 && GameManager.Instance.ichor >= 5)
         {
             dropper.DropHarvester();
-            gameManager.bone -= 5;
-            gameManager.ichor -= 5;
+            GameManager.Instance.bone -= 5;
+            GameManager.Instance.ichor -= 5;
         }
 
     }

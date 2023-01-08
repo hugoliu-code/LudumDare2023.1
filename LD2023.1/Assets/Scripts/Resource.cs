@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
-    private GameManager gameManager;
-    [SerializeField] string name;
+
+    [SerializeField] string resourceName;
     private int resource = 50;
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.FindObjectOfType<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -25,20 +25,20 @@ public class Resource : MonoBehaviour
     {
         resource--;
 
-        if(name == "ruby")
+        if(resourceName == "ruby")
         {
-            gameManager.ruby++;
-            Debug.Log("RUBY");
+            GameManager.Instance.ruby++;
+
         }
-        if (name == "bone")
+        if (resourceName == "bone")
         {
-            gameManager.bone++;
-            Debug.Log("BONE");
+            GameManager.Instance.bone++;
+
         }
-        if(name == "ichor")
+        if(resourceName == "ichor")
         {
-            gameManager.ichor++;
-            Debug.Log("ICHOR");
+            GameManager.Instance.ichor++;
+
         }
     }
 }

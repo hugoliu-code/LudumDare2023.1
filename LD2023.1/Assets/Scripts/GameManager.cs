@@ -7,15 +7,18 @@ public class GameManager : MonoBehaviour
     public int ruby;
     public int bone;
     public int ichor;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public static GameManager Instance = null;
+
+
+    private void Awake()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
     }
 }
