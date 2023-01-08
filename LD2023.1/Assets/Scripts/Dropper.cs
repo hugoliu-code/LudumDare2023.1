@@ -28,7 +28,7 @@ public class Dropper : MonoBehaviour
     public void DropHarvester()
     {
         GameObject HarvesterIns = Instantiate(harvester, player.position, player.rotation);
-        HarvesterIns.GetComponent<Rigidbody2D>().AddForce(HarvesterIns.transform.right*150);
+        HarvesterIns.GetComponent<Rigidbody2D>().AddForce(HarvesterIns.transform.right* 1000000);
         Destroy(HarvesterIns, harvesterLifespan);
     }
 
