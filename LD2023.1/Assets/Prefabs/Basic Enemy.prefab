@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9005740607630910650}
   - component: {fileID: 522806588}
   - component: {fileID: 522806587}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c7850aeda659e4a878b1364339d5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followingTurret: 0
   turretPos: {fileID: 0}
   chaserEnemy: {fileID: 4671270146035796699}
 --- !u!1 &8039535827459475759
