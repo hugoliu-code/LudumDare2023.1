@@ -69,9 +69,9 @@ public class MapGenerator : MonoBehaviour
         {
             for(int b = 0; b < 100; b++)
             {
-                float2 location = new float2(a*scale, b*scale);
+                float2 location = new float2(a*scale*100, b*scale*100); //extra 100 to make it more random
                 float sample = noise.cellular(location).x;
-                Debug.Log(sample);
+                //Debug.Log(sample);
                 if(sample > generationMargin)
                 {
                     PlaceResource(a,b);
@@ -81,7 +81,10 @@ public class MapGenerator : MonoBehaviour
     }
     void PlaceResource(int x, int y)
     {
-        Instantiate(resourceObject, new Vector3(x*spread, y*spread, 0), Quaternion.identity);
+
+        float randX = UnityEngine.Random.Range(-0.5f, 0.5f); //slightly random position change so it doesn't look like a grid
+        float randY = UnityEngine.Random.Range(-0.5f, 0.5f);
+        Instantiate(resourceObject, new Vector3(x*spread+randX, y*spread+randY, 0), Quaternion.identity, this.transform);
     }
     void Update()
     {

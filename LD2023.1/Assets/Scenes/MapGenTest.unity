@@ -158,8 +158,9 @@ MonoBehaviour:
   xOrg: 0
   yOrg: 0
   scale: 6
-  resourceObject: {fileID: 1468582794835005308, guid: b4ba8090e8c56844589dfc430421fe91, type: 3}
-  generationMargin: 0
+  resourceObject: {fileID: 2353979130171895604, guid: 4e261c08a2a03ce4fa48afd264759e5f, type: 3}
+  generationMargin: 0.94
+  spread: 2
 --- !u!4 &510427143
 Transform:
   m_ObjectHideFlags: 0
@@ -261,7 +262,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.69411767, g: 0.24313726, b: 0.29411766, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -278,7 +279,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 50
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -302,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988214706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 100, y: 100, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
