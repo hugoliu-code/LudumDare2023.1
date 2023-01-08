@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1871150359
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -6853314731082705818, guid: 1f7dcfcf815abc1478d2eae4bef2d3a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -144,4 +144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1fd1c642072a40418657f7adfa1885b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: ruby
+  resourceName: 
+  sprites: []

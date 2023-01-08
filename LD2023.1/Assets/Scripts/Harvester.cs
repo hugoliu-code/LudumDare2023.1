@@ -7,15 +7,18 @@ public class Harvester : MonoBehaviour
     public float range;
     private Resource target;
     private float harvestingTime;
+    private LineRenderer line;
     CanvasController canvasCon;
     // Start is called before the first frame update
     void Start()
     {
         canvasCon = FindObjectOfType<CanvasController>();
         Invoke("Target", 1f);
+        line = GetComponent<LineRenderer>();
     }
     private void Update()
     {
+
         if(canvasCon.harvestUpgrade == 0)
         {
             harvestingTime = 1.5f;
@@ -61,7 +64,16 @@ public class Harvester : MonoBehaviour
             return;
         }
         target = resources[smallestIndex].GetComponent<Resource>();
+        //Line
+        Vector3[] linePoints = new Vector3[2];
+        linePoints[0] = transform.position;
+        linePoints[1] = target.transform.position;
+        line.SetPositions(linePoints);
+
+        //Harvesting
+
         StartCoroutine(Harvesting());
+        
 
     }
     private void OnDrawGizmos()
@@ -75,5 +87,6 @@ public class Harvester : MonoBehaviour
             target.Harvest();
             yield return new WaitForSeconds(harvestingTime);
         }
+        Destroy(line);
     }
 }
