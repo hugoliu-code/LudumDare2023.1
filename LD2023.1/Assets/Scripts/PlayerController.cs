@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    CanvasController canvasCon;
-    [SerializeField] float speed;
+    private CanvasController canvasCon;
     private Animator anim;
     private Rigidbody2D rb;
+    private bool invincible;
+
+    private bool ticket0 = true;
+    private bool ticket1 = true;
+    private bool ticket2 = true;
+    private bool ticket3 = true;
+    private bool ticket4 = true;
 
     private enum State { idle, running }
     private State state = State.idle;
+
+    [SerializeField] float speed;
+
 
     void Start()
     {
@@ -20,26 +29,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if(canvasCon.movementUpgrade == 0)
-        {
-            speed = 5;
-        }
-        if (canvasCon.movementUpgrade == 1)
-        {
-            speed = 6;
-        }
-        if (canvasCon.movementUpgrade == 2)
-        {
-            speed = 7;
-        }
-        if (canvasCon.movementUpgrade == 3)
-        {
-            speed = 8;
-        }
-        if (canvasCon.movementUpgrade == 4)
-        {
-            speed = 10;
-        }
+        Upgrades();
         anim.SetInteger("state", (int)state);
         Movement();
         AnimationState();
@@ -81,5 +71,77 @@ public class PlayerController : MonoBehaviour
         {
             state = State.idle;
         }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            if (invincible == false)
+            {
+                StartCoroutine(Invincible());
+                GameManager.Instance.playerHealth--;
+                if (GameManager.Instance.playerHealth <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
+    private void Upgrades()
+    {
+        //Movement
+        if (canvasCon.movementUpgrade == 0)
+        {
+            speed = 5;
+        }
+        if (canvasCon.movementUpgrade == 1)
+        {
+            speed = 6;
+        }
+        if (canvasCon.movementUpgrade == 2)
+        {
+            speed = 7;
+        }
+        if (canvasCon.movementUpgrade == 3)
+        {
+            speed = 8;
+        }
+        if (canvasCon.movementUpgrade == 4)
+        {
+            speed = 10;
+        }
+
+        //Health
+        if (canvasCon.healthUpgrade == 0 && ticket0)
+        {
+            ticket0 = false;
+            GameManager.Instance.playerHealth = 3;    
+        }
+        if (canvasCon.healthUpgrade == 1 && ticket1)
+        {
+            ticket1 = false;
+            GameManager.Instance.playerHealth++;
+        }
+        if (canvasCon.healthUpgrade == 2 && ticket2)
+        {
+            ticket2 = false;
+            GameManager.Instance.playerHealth++;
+        }
+        if (canvasCon.healthUpgrade == 3 && ticket3)
+        {
+            ticket3 = false;
+            GameManager.Instance.playerHealth++;
+        }
+        if (canvasCon.healthUpgrade == 4 && ticket4)
+        {
+            ticket4 = false;
+            GameManager.Instance.playerHealth++;
+        }
+    }
+    private IEnumerator Invincible()
+    {
+        invincible = true;
+        yield return new WaitForSeconds(4f);
+        invincible = false;
     }
 }

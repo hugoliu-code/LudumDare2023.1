@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public int bone;
     public int ichor;
     public int organicMatter;
+    public int playerHealth;
     public static GameManager Instance = null;
 
 
