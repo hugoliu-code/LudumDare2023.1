@@ -17,8 +17,8 @@ public class ChaserEnemy : MonoBehaviour
     void Update()
     {
         //transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-        Vector2 direction = (playerTransform.position - transform.position).normalized * speed * 1000 * Time.deltaTime;
-        rb.velocity = direction;
+        Vector2 direction = (playerTransform.position - transform.position).normalized;
+        rb.velocity = direction*speed*Time.deltaTime;
         //if (currentTurret == null)
         //{
         //    transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);

@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474fdd3ea377ea54a82ae5a321c82907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 2000
   detector: {fileID: 522806587}
   currentTurret: {fileID: 0}
 --- !u!50 &3659196910939180439
