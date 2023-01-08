@@ -46,13 +46,6 @@ public class Resource : MonoBehaviour
         resourceName = names[resourceType];
     }
     // Update is called once per frame
-    void Update()
-    {
-        if(resource <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Checks for nearby resources
@@ -90,6 +83,10 @@ public class Resource : MonoBehaviour
         {
             GameManager.Instance.ichor++;
 
+        }
+        if (resource <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
