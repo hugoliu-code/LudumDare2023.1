@@ -31,7 +31,7 @@ public class Detector : MonoBehaviour
             }
             
         }
-        else if (collision.CompareTag("Turret") && chaserEnemy.currentTurret == null)
+        else if ((collision.CompareTag("Bomb") || collision.CompareTag("Turret")) && chaserEnemy.currentTurret == null)
         {
             chaserEnemy.currentTurret = collision.gameObject;
         }

@@ -74,5 +74,13 @@ public class ChaserEnemy : MonoBehaviour
                 lure.LureTakeHit(10);
             }
         }
+        if (collision.gameObject.tag == "Bomb")
+        {
+            Bomb bomb = collision.collider.GetComponent<Bomb>();
+            if (bomb)
+            {
+                bomb.BombTakeHit(10);
+            }
+        }
     }
 }
