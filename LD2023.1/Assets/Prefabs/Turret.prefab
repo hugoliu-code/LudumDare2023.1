@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 569931543820119881}
   - component: {fileID: 258303158956839352}
   - component: {fileID: -4917139220271401532}
-  - component: {fileID: 1385368504}
+  - component: {fileID: 5613460588324472855}
   m_Layer: 3
   m_Name: Turret
   m_TagString: Turret
@@ -554,8 +554,8 @@ MonoBehaviour:
   hitpoints: 0
   maxHitpoints: 100
   healthBar: {fileID: 1658803239}
---- !u!61 &1385368504
-BoxCollider2D:
+--- !u!70 &5613460588324472855
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -567,19 +567,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03125, y: 0.09239795}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.44444445, y: 0.33333334}
-    oldSize: {x: 0.5625, y: 0.5625}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5625, y: 0.559796}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.023135217, y: 0.24306317}
+  m_Size: {x: 0.5625001, y: 0.26387638}
+  m_Direction: 1
 --- !u!1 &7031103834925776650
 GameObject:
   m_ObjectHideFlags: 0

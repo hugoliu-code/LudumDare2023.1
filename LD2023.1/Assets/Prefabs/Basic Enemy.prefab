@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 515353526593877972}
   - component: {fileID: 4671270146035796699}
   - component: {fileID: 3659196910939180439}
-  - component: {fileID: 1221281119163436491}
+  - component: {fileID: -1887684893024682140}
   m_Layer: 8
   m_Name: Basic Enemy
   m_TagString: Enemy
@@ -161,8 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2fc329ff3c9f2246aec0b1d8159604e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDrop: {fileID: 1644068942727162850, guid: 575cc11c531b943408618ad518a67026, type: 3}
   hitpoints: 0
-  maxHitpoints: 1000
+  maxHitpoints: 50
 --- !u!114 &4671270146035796699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474fdd3ea377ea54a82ae5a321c82907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 38.77
+  speed: 100
   detector: {fileID: 522806587}
   currentTurret: {fileID: 0}
 --- !u!50 &3659196910939180439
@@ -199,8 +200,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1221281119163436491
-BoxCollider2D:
+--- !u!70 &-1887684893024682140
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -212,16 +213,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.031898618, y: -0.004589677}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4375, y: 2.375}
-    newSize: {x: 0.8828125, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4027021, y: 0.8657577}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.063349724, y: -0.10006714}
+  m_Size: {x: 0.458663, y: 1.1892924}
+  m_Direction: 0

@@ -11,7 +11,7 @@ public class EnemyGeneration : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(SpawnWave(200, 100, 90, 20));
+        StartCoroutine(SpawnWave(20, 30, 90, 1f));
     }
 
     // Update is called once per frame

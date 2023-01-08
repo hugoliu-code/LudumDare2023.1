@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] GameObject enemyDrop;
+
     public float hitpoints;
     public float maxHitpoints;
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class Enemy : MonoBehaviour
         hitpoints -= damage;
         if (hitpoints <= 0)
         {
+            Instantiate(enemyDrop, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

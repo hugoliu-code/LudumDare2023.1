@@ -32,7 +32,7 @@ public class MapGenerator : MonoBehaviour
     {
 
         rend = GetComponent<Renderer>();
-
+        Generate();
         // Set up the texture and a Color array to hold pixels during processing.
         //noiseTex = new Texture2D(pixWidth, pixHeight);
         //pix = new Color[noiseTex.width * noiseTex.height];

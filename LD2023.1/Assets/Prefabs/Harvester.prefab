@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6109673852492365362}
   - component: {fileID: -23252554141854557}
   - component: {fileID: -8575310555744589143}
-  - component: {fileID: 3698981091361781215}
   - component: {fileID: -4277651641462677611}
+  - component: {fileID: 5337821947455023619}
   m_Layer: 3
   m_Name: Harvester
   m_TagString: Untagged
@@ -120,32 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 3
---- !u!61 &3698981091361781215
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6109673852492365363}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.09371689}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5625, y: 0.6875}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5625, y: 0.5000662}
-  m_EdgeRadius: 0
 --- !u!120 &-4277651641462677611
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -244,3 +218,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!70 &5337821947455023619
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109673852492365363}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.000000004232529, y: -0.03550503}
+  m_Size: {x: 0.5625002, y: 0.39152956}
+  m_Direction: 1

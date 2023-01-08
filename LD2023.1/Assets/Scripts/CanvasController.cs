@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class CanvasController : MonoBehaviour
 {
     public Dropper dropper;
     public GameObject buildMenu;
     public GameObject upgradeMenu;
+    public GameObject pauseMenu;
+
     private bool buildMenuActive = false;
     private bool upgradeMenuActive = false;
+    private bool pauseMenuActive = false;
 
     public Image[] movementProgress;
     public Image[] pierceProgress;
@@ -93,13 +97,13 @@ public class CanvasController : MonoBehaviour
     {
         if (pierceUpgrade < 2)
         {
-            if (GameManager.Instance.organicMatter >= 20 && pierceUpgrade == 0)
+            if (GameManager.Instance.organicMatter >= 100 && pierceUpgrade == 0)
             {
                 GameManager.Instance.organicMatter -= 100;
                 pierceUpgrade++;
                 pierceProgress[0].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 80 && pierceUpgrade == 1)
+            else if (GameManager.Instance.organicMatter >= 200 && pierceUpgrade == 1)
             {
                 GameManager.Instance.organicMatter -= 200;
                 pierceUpgrade++;
@@ -148,21 +152,21 @@ public class CanvasController : MonoBehaviour
                 healthUpgrade++;
                 healthProgress[0].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 80 && healthUpgrade == 1)
+            else if (GameManager.Instance.organicMatter >= 100 && healthUpgrade == 1)
             {
-                GameManager.Instance.organicMatter -= 80;
+                GameManager.Instance.organicMatter -= 100;
                 healthUpgrade++;
                 healthProgress[1].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 210 && healthUpgrade == 2)
+            else if (GameManager.Instance.organicMatter >= 220 && healthUpgrade == 2)
             {
-                GameManager.Instance.organicMatter -= 210;
+                GameManager.Instance.organicMatter -= 220;
                 healthUpgrade++;
                 healthProgress[2].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 320 && healthUpgrade == 3)
+            else if (GameManager.Instance.organicMatter >= 300 && healthUpgrade == 3)
             {
-                GameManager.Instance.organicMatter -= 320;
+                GameManager.Instance.organicMatter -= 300;
                 healthUpgrade++;
                 healthProgress[3].color = new Color32(0, 255, 0, 255);
             }
@@ -171,45 +175,73 @@ public class CanvasController : MonoBehaviour
     }
     private void CanvasControl()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && pauseMenuActive == false)
         {
-            Debug.Log("ENTER");
             if(buildMenuActive == false)
             {
-                upgradeMenu.SetActive(false);
-                upgradeMenuActive = false;
-
                 buildMenu.SetActive(true);
                 buildMenuActive = true;
+
+                upgradeMenu.SetActive(false);
+                upgradeMenuActive = false;                
             }
             else
             {
-                upgradeMenu.SetActive(false);
-                upgradeMenuActive = false;
-
                 buildMenu.SetActive(false);
                 buildMenuActive = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && pauseMenuActive == false)
         {
-            Debug.Log("ENTER");
             if (upgradeMenuActive == false)
             {
-                buildMenu.SetActive(false);
-                buildMenuActive = false;
-
                 upgradeMenu.SetActive(true);
                 upgradeMenuActive = true;
+
+                buildMenu.SetActive(false);
+                buildMenuActive = false;              
             }
             else
             {
+                upgradeMenu.SetActive(false);
+                upgradeMenuActive = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseMenuActive == false)
+            {
+
+                pauseMenu.SetActive(true);
+                pauseMenuActive = true;
+
                 buildMenu.SetActive(false);
                 buildMenuActive = false;
 
                 upgradeMenu.SetActive(false);
                 upgradeMenuActive = false;
+                Pause();
+            }
+            else
+            {
+                pauseMenu.SetActive(false);
+                pauseMenuActive = false;
+                Resume();
             }
         }
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Resume();
+    }
+    
+    public void Pause()
+    {
+        Time.timeScale = 0;
+    }
+    public void Resume()
+    {
+        Time.timeScale = 1;
     }
 }

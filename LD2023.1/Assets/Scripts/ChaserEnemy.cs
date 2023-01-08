@@ -7,7 +7,7 @@ public class ChaserEnemy : MonoBehaviour
     private Transform playerTransform;
     [SerializeField] float speed;
     [SerializeField] Detector detector;
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
     public GameObject currentTurret;
     private void Start()
     {
@@ -16,17 +16,44 @@ public class ChaserEnemy : MonoBehaviour
     }
     void FixedUpdate()
     {
-        //transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-        Vector2 direction = (playerTransform.position - transform.position).normalized;
-        rb.velocity = direction*speed*Time.deltaTime;
-        //if (currentTurret == null)
-        //{
-        //    transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-        //}
-        //else
-        //{
-        //    transform.position = Vector2.MoveTowards(transform.position, currentTurret.transform.position, speed * Time.deltaTime);
-        //}
+        if (currentTurret != null)
+        {
+            if (currentTurret.transform.position.x < gameObject.transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                Debug.Log("left");
+            }
+            else
+            {
+                Debug.Log("right");
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        else
+        {
+            if(playerTransform.position.x<gameObject.transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                Debug.Log("left");
+            }
+            else
+            {
+                Debug.Log("right");
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+
+        if (currentTurret == null)
+        {
+            Vector2 direction = (playerTransform.position - transform.position).normalized;
+            rb.velocity = direction * speed * Time.deltaTime;
+            
+        }
+        else
+        {
+            Vector2 direction = (currentTurret.transform.position - transform.position).normalized;
+            rb.velocity = direction * speed * Time.deltaTime;
+        }
 
     }
     private void OnCollisionStay2D(Collision2D collision)
