@@ -14,7 +14,7 @@ public class ChaserEnemy : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
     }
-    void Update()
+    void FixedUpdate()
     {
         //transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
         Vector2 direction = (playerTransform.position - transform.position).normalized;
