@@ -9,6 +9,11 @@ public class CanvasController : MonoBehaviour
     public GameObject upgradeMenu;
     private bool buildMenuActive = false;
     private bool upgradeMenuActive = false;
+
+    public int movementUpgrade = 0;
+    public int pierceUpgrade = 0;
+    public int healthUpgrade = 0;
+    public int harvestUpgrade = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +52,76 @@ public class CanvasController : MonoBehaviour
         }
 
     }
+    public void UpgradeMovement()
+    {
+        if (movementUpgrade < 4){
+            if (GameManager.Instance.organicMatter >= 20 && movementUpgrade == 0)
+            {
+                GameManager.Instance.organicMatter -= 20;
+                movementUpgrade++;
+            }
+            else if (GameManager.Instance.organicMatter >= 80 && movementUpgrade == 1)
+            {
+                GameManager.Instance.organicMatter -= 80;
+                movementUpgrade++;
+            }
+            else if (GameManager.Instance.organicMatter >= 200 && movementUpgrade == 2)
+            {
+                GameManager.Instance.organicMatter -= 200;
+                movementUpgrade++;
+            }
+            else if (GameManager.Instance.organicMatter >= 300 && movementUpgrade == 3)
+            {
+                GameManager.Instance.organicMatter -= 300;
+                movementUpgrade++;
+            }
+     
+        }
+        
+    }
+    public void UpgradePierce()
+    {
+        if (pierceUpgrade < 2)
+        {
+            if (GameManager.Instance.organicMatter >= 20 && pierceUpgrade == 0)
+            {
+                GameManager.Instance.organicMatter -= 100;
+                pierceUpgrade++;
+            }
+            else if (GameManager.Instance.organicMatter >= 80 && pierceUpgrade == 1)
+            {
+                GameManager.Instance.organicMatter -= 200;
+                pierceUpgrade++;
+            }
+        }
+    }
+    public void UpgradeHarvester()
+    {
+        if (harvestUpgrade < 4)
+        {
+            if (GameManager.Instance.organicMatter >= 30 && harvestUpgrade == 0)
+            {
+                GameManager.Instance.organicMatter -= 30;
+                harvestUpgrade++;
+            }
+            else if (GameManager.Instance.organicMatter >= 80 && harvestUpgrade == 1)
+            {
+                GameManager.Instance.organicMatter -= 80;
+                harvestUpgrade++;
+            }
+            else if (GameManager.Instance.organicMatter >= 210 && harvestUpgrade == 2)
+            {
+                GameManager.Instance.organicMatter -= 210;
+                harvestUpgrade++;
+            }
+            else if (GameManager.Instance.organicMatter >= 320 && harvestUpgrade == 3)
+            {
+                GameManager.Instance.organicMatter -= 320;
+                harvestUpgrade++;
+            }
 
+        }
+    }
 
     private void CanvasControl()
     {

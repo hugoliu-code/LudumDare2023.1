@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    CanvasController canvasCon;
     [SerializeField] float speed;
     private Animator anim;
     private Rigidbody2D rb;
@@ -13,11 +14,32 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        canvasCon = FindObjectOfType<CanvasController>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
     void Update()
     {
+        if(canvasCon.movementUpgrade == 0)
+        {
+            speed = 5;
+        }
+        if (canvasCon.movementUpgrade == 1)
+        {
+            speed = 6;
+        }
+        if (canvasCon.movementUpgrade == 2)
+        {
+            speed = 7;
+        }
+        if (canvasCon.movementUpgrade == 3)
+        {
+            speed = 8;
+        }
+        if (canvasCon.movementUpgrade == 4)
+        {
+            speed = 10;
+        }
         anim.SetInteger("state", (int)state);
         Movement();
         AnimationState();

@@ -6,14 +6,37 @@ public class Harvester : MonoBehaviour
 {
     public float range;
     private Resource target;
+    private float harvestingTime;
+    CanvasController canvasCon;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Target", 1.5f);
-        //HarvesterAI();
+        canvasCon = FindObjectOfType<CanvasController>();
+        Invoke("Target", 1f);
     }
-
-    // Update is called once per frame
+    private void Update()
+    {
+        if(canvasCon.harvestUpgrade == 0)
+        {
+            harvestingTime = 1.5f;
+        }
+        if (canvasCon.harvestUpgrade == 1)
+        {
+            harvestingTime = 1.2f;
+        }
+        if (canvasCon.harvestUpgrade == 2)
+        {
+            harvestingTime = 0.9f;
+        }
+        if (canvasCon.harvestUpgrade == 3)
+        {
+            harvestingTime = 0.6f;
+        }
+        if (canvasCon.harvestUpgrade == 4)
+        {
+            harvestingTime = 0.3f;
+        }
+    }
     private void Target()
     {
         float smallest = range;
@@ -41,34 +64,6 @@ public class Harvester : MonoBehaviour
         StartCoroutine(Harvesting());
 
     }
-    //private void HarvesterAI()
-    //{
-    //    if (target == null)
-    //    {
-    //        Target();
-    //        return;
-    //    }
-    //    Vector2 targetPos = target.position;
-    //    direction = targetPos - (Vector2)transform.position;
-    //    rayInfo = Physics2D.Raycast(transform.position, direction, range);
-    //    if (rayInfo)
-    //    {
-    //        if (rayInfo.collider.gameObject.tag == "Resource")
-    //        {
-    //            detected = true;
-    //        }
-    //        else
-    //        {
-    //            detected = false;
-    //        }
-    //    }
-    //    if (detected)
-    //    {
-    //        Debug.Log("Harvesting");
-    //        StartCoroutine(Harvesting());
-    //    }
-    //}
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, range);
@@ -77,9 +72,8 @@ public class Harvester : MonoBehaviour
     private IEnumerator Harvesting()
     {
         while (target != null) {
-            //rayInfo.collider.gameObject.GetComponent<Resource>().Harvest();
             target.Harvest();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(harvestingTime);
         }
     }
 }

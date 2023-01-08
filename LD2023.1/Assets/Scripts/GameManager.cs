@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public int ruby;
     public int bone;
     public int ichor;
-
+    public int organicMatter;
     public static GameManager Instance = null;
 
 
