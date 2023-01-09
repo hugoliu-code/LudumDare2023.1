@@ -115,16 +115,16 @@ public class MapGenerator : MonoBehaviour
     void Update()
     {
         //CalcNoise();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject[] resourceList = GameObject.FindGameObjectsWithTag("Resource");
-            foreach(GameObject n in resourceList)
-            {
-                Destroy(n);
-            }
-            Debug.Log("generated");
-            Generate();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    GameObject[] resourceList = GameObject.FindGameObjectsWithTag("Resource");
+        //    foreach(GameObject n in resourceList)
+        //    {
+        //        Destroy(n);
+        //    }
+        //    Debug.Log("generated");
+        //    Generate();
+        //}
         
     }
 }
