@@ -15,6 +15,7 @@ public class EnemyGeneration : MonoBehaviour
         //StartCoroutine(SpawnWave(20, 30, 90, 1f));
         startTime = Time.time;
         StartCoroutine(MediumSpawns());
+        StartCoroutine(LargeSpawns());
     }
 
     // Update is called once per frame
@@ -25,12 +26,22 @@ public class EnemyGeneration : MonoBehaviour
     IEnumerator MediumSpawns()
     {
         yield return new WaitForSeconds(15);
-        while(Time.time - startTime < 666)
+        while(Time.time - startTime < 300)
         {
-            yield return new WaitForSeconds(Random.Range(20, 30));
+            yield return new WaitForSeconds(Random.Range(30, 35));
             Debug.Log("Spawning: " + (int)((Time.time - startTime) / 60) * 5 + 5);
 
-            StartCoroutine(SpawnWave((int)((Time.time - startTime) / 60) * 5+5, Random.Range(0, 360), Random.Range(0, 360), 2));
+            StartCoroutine(SpawnWave((int)((Time.time - startTime) / 60) * 4+5, Random.Range(0, 360), Random.Range(0, 360), 2));
+        }
+    }
+    IEnumerator LargeSpawns()
+    {
+        while (Time.time - startTime < 300)
+        {
+            yield return new WaitForSeconds(Random.Range(80, 100));
+            Debug.Log("Spawning: " + (int)((Time.time - startTime) / 60) * 5 + 5);
+
+            StartCoroutine(SpawnWave((int)((Time.time - startTime) / 60) * 7, Random.Range(340, 360), Random.Range(0, 360), 4));
         }
     }
     //spawn a wave of a certain number of enemies, in a certain range (a range of degrees), at a certain spsed (spawns per second)

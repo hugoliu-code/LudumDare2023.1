@@ -31,19 +31,19 @@ public class ResourceDisplay : MonoBehaviour
         //Movement
         if(canvasController.movementUpgrade == 0)
         {
-            movementPrice.text = "" + 20;
+            movementPrice.text = "" + 5;
         }
         if(canvasController.movementUpgrade == 1)
         {
-            movementPrice.text = "" + 30;
+            movementPrice.text = "" + 10;
         }
         if (canvasController.movementUpgrade == 2)
         {
-            movementPrice.text = "" + 40;
+            movementPrice.text = "" + 15;
         }
         if (canvasController.movementUpgrade == 3)
         {
-            movementPrice.text = "" + 50;
+            movementPrice.text = "" + 20;
         }
         if (canvasController.movementUpgrade == 4)
         {
@@ -52,11 +52,11 @@ public class ResourceDisplay : MonoBehaviour
         //Pierce
         if(canvasController.pierceUpgrade == 0)
         {
-            piercePrice.text = "" + 50;
+            piercePrice.text = "" + 30;
         }
         if (canvasController.pierceUpgrade == 1)
         {
-            piercePrice.text = "" + 100;
+            piercePrice.text = "" + 50;
         }
         if (canvasController.pierceUpgrade == 2)
         {
@@ -65,19 +65,19 @@ public class ResourceDisplay : MonoBehaviour
         //Health
         if(canvasController.healthUpgrade == 0)
         {
-            healthPrice.text = "" + 20;
+            healthPrice.text = "" + 5;
         }
         if (canvasController.healthUpgrade == 1)
         {
-            healthPrice.text = "" + 30;
+            healthPrice.text = "" + 10;
         }
         if (canvasController.healthUpgrade == 2)
         {
-            healthPrice.text = "" + 40;
+            healthPrice.text = "" + 15;
         }
         if (canvasController.healthUpgrade == 3)
         {
-            healthPrice.text = "" + 50;
+            healthPrice.text = "" + 20;
         }
         if (canvasController.healthUpgrade == 4)
         {
@@ -86,19 +86,19 @@ public class ResourceDisplay : MonoBehaviour
         //Harvest
         if(canvasController.harvestUpgrade == 0)
         {
-            harvestPrice.text = "" + 30;
+            harvestPrice.text = "" + 5;
         }
         if (canvasController.harvestUpgrade == 1)
         {
-            harvestPrice.text = "" + 40;
+            harvestPrice.text = "" + 10;
         }
         if (canvasController.harvestUpgrade == 2)
         {
-            harvestPrice.text = "" + 50;
+            harvestPrice.text = "" + 15;
         }
         if (canvasController.harvestUpgrade == 3)
         {
-            harvestPrice.text = "" + 60;
+            harvestPrice.text = "" + 20;
         }
         if (canvasController.harvestUpgrade == 4)
         {

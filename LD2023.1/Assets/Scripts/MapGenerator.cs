@@ -11,6 +11,8 @@ public class MapGenerator : MonoBehaviour
     // The origin of the sampled area in the plane.
     public float xOrg;
     public float yOrg;
+    public float xOrgDetails;
+    public float yOrgDetails;
 
     // The number of cycles of the basic noise pattern that are repeated
     // over the width and height of the texture.
@@ -22,10 +24,12 @@ public class MapGenerator : MonoBehaviour
 
     //GameObject to place
     [SerializeField] GameObject resourceObject;
+    [SerializeField] GameObject[] detail;
 
 
     //Margin for placing
     [SerializeField] float generationMargin;
+    [SerializeField] float detailGenerationMargin;
     [SerializeField] float spread;
     [SerializeField] int mapSize = 1000;
     void Start()
@@ -69,6 +73,8 @@ public class MapGenerator : MonoBehaviour
     {
         xOrg = UnityEngine.Random.Range(0, 1000);
         yOrg = UnityEngine.Random.Range(0, 1000);
+        xOrgDetails = UnityEngine.Random.Range(0, 1000);
+        yOrgDetails = UnityEngine.Random.Range(0, 1000);
         for (int a = 0; a<mapSize; a++)
         {
             for(int b = 0; b < mapSize; b++)
@@ -80,6 +86,13 @@ public class MapGenerator : MonoBehaviour
                 {
                     PlaceResource(a,b);
                 }
+                location = new float2(a * scale * 100 + xOrgDetails, b * scale * 100 + yOrgDetails); //extra 100 to make it more random
+                sample = noise.cellular(location).x;
+                //Debug.Log(sample);
+                if (sample > detailGenerationMargin)
+                {
+                    PlaceDetail(a, b);
+                }
             }
         }
     }
@@ -90,6 +103,14 @@ public class MapGenerator : MonoBehaviour
         float randY = UnityEngine.Random.Range(-0.5f, 0.5f);
         float centering = mapSize * spread * 0.5f;
         Instantiate(resourceObject, new Vector3(x*spread+randX-centering , y*spread+randY-centering , 0), Quaternion.identity, this.transform);
+    }
+    void PlaceDetail(int x, int y)
+    {
+
+        float randX = UnityEngine.Random.Range(-0.5f, 0.5f); //slightly random position change so it doesn't look like a grid
+        float randY = UnityEngine.Random.Range(-0.5f, 0.5f);
+        float centering = mapSize * spread * 0.5f;
+        Instantiate(detail[UnityEngine.Random.Range(0,3)], new Vector3(x * spread + randX - centering, y * spread + randY - centering, 0), Quaternion.identity, this.transform);
     }
     void Update()
     {

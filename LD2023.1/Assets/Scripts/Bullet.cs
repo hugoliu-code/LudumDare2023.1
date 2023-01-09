@@ -38,7 +38,6 @@ public class Bullet : MonoBehaviour
             hitEnemyCount++;
             if (hitEnemyCount >= maxPierce)
             {
-                Debug.Log("DESTROYED");
                 Destroy(gameObject);
             }
         }

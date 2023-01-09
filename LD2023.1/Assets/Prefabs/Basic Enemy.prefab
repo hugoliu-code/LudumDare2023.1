@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDrop: {fileID: 1644068942727162850, guid: 575cc11c531b943408618ad518a67026, type: 3}
+  damageIndicator: {fileID: 364436844380295972, guid: 8f20b984265a9a74fbb3f55b0dcef3e0, type: 3}
   hitpoints: 0
   maxHitpoints: 100
 --- !u!114 &4671270146035796699

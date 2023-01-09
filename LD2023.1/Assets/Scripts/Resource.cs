@@ -14,7 +14,7 @@ public class Resource : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("RandomGeneration",1f); 
+        Invoke("RandomGeneration",0.1f); 
     }
     
     void RandomGeneration()

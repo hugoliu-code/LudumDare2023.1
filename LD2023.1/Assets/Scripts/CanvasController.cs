@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class CanvasController : MonoBehaviour
 {
     public Dropper dropper;
     public GameObject buildMenu;
     public GameObject upgradeMenu;
     public GameObject pauseMenu;
-
+    public TextMeshProUGUI timer;
     private bool buildMenuActive = false;
     private bool upgradeMenuActive = false;
     private bool pauseMenuActive = false;
@@ -32,16 +33,12 @@ public class CanvasController : MonoBehaviour
     [SerializeField] int[] cannonCost;
    
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
         CanvasControl();
+        timer.text = (300-(Time.time - GameManager.Instance.startTime)).ToString("f0") + " Seconds Left";
     }
     public void DropCannon()
     {
@@ -93,27 +90,27 @@ public class CanvasController : MonoBehaviour
     public void UpgradeMovement()
     {
         if (movementUpgrade < 4){
-            if (GameManager.Instance.organicMatter >= 20 && movementUpgrade == 0)
+            if (GameManager.Instance.organicMatter >= 5 && movementUpgrade == 0)
             {
-                GameManager.Instance.organicMatter -= 20;
+                GameManager.Instance.organicMatter -= 5;
                 movementUpgrade++;
                 movementProgress[0].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 80 && movementUpgrade == 1)
+            else if (GameManager.Instance.organicMatter >= 10 && movementUpgrade == 1)
             {
-                GameManager.Instance.organicMatter -= 80;
+                GameManager.Instance.organicMatter -= 10;
                 movementUpgrade++;
                 movementProgress[1].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 200 && movementUpgrade == 2)
+            else if (GameManager.Instance.organicMatter >= 15 && movementUpgrade == 2)
             {
-                GameManager.Instance.organicMatter -= 200;
+                GameManager.Instance.organicMatter -= 15;
                 movementUpgrade++;
                 movementProgress[2].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 300 && movementUpgrade == 3)
+            else if (GameManager.Instance.organicMatter >= 20 && movementUpgrade == 3)
             {
-                GameManager.Instance.organicMatter -= 300;
+                GameManager.Instance.organicMatter -= 20;
                 movementUpgrade++;
                 movementProgress[3].color = new Color32(0, 255, 0, 255);
             }
@@ -125,15 +122,15 @@ public class CanvasController : MonoBehaviour
     {
         if (pierceUpgrade < 2)
         {
-            if (GameManager.Instance.organicMatter >= 100 && pierceUpgrade == 0)
+            if (GameManager.Instance.organicMatter >= 30 && pierceUpgrade == 0)
             {
-                GameManager.Instance.organicMatter -= 100;
+                GameManager.Instance.organicMatter -= 30;
                 pierceUpgrade++;
                 pierceProgress[0].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 200 && pierceUpgrade == 1)
+            else if (GameManager.Instance.organicMatter >= 50 && pierceUpgrade == 1)
             {
-                GameManager.Instance.organicMatter -= 200;
+                GameManager.Instance.organicMatter -= 50;
                 pierceUpgrade++;
                 pierceProgress[1].color = new Color32(0, 255, 0, 255);
             }
@@ -143,27 +140,27 @@ public class CanvasController : MonoBehaviour
     {
         if (harvestUpgrade < 4)
         {
-            if (GameManager.Instance.organicMatter >= 30 && harvestUpgrade == 0)
+            if (GameManager.Instance.organicMatter >= 5 && harvestUpgrade == 0)
             {
-                GameManager.Instance.organicMatter -= 30;
+                GameManager.Instance.organicMatter -= 5;
                 harvestUpgrade++;
                 harvestProgress[0].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 80 && harvestUpgrade == 1)
+            else if (GameManager.Instance.organicMatter >= 10 && harvestUpgrade == 1)
             {
-                GameManager.Instance.organicMatter -= 80;
+                GameManager.Instance.organicMatter -= 10;
                 harvestUpgrade++;
                 harvestProgress[1].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 210 && harvestUpgrade == 2)
+            else if (GameManager.Instance.organicMatter >= 15 && harvestUpgrade == 2)
             {
-                GameManager.Instance.organicMatter -= 210;
+                GameManager.Instance.organicMatter -= 15;
                 harvestUpgrade++;
                 harvestProgress[2].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 320 && harvestUpgrade == 3)
+            else if (GameManager.Instance.organicMatter >= 20 && harvestUpgrade == 3)
             {
-                GameManager.Instance.organicMatter -= 320;
+                GameManager.Instance.organicMatter -= 20;
                 harvestUpgrade++;
                 harvestProgress[3].color = new Color32(0, 255, 0, 255);
             }
@@ -174,27 +171,27 @@ public class CanvasController : MonoBehaviour
     {
         if (healthUpgrade < 4)
         {
-            if (GameManager.Instance.organicMatter >= 50 && healthUpgrade == 0)
+            if (GameManager.Instance.organicMatter >= 5 && healthUpgrade == 0)
             {
-                GameManager.Instance.organicMatter -= 50;
+                GameManager.Instance.organicMatter -= 5;
                 healthUpgrade++;
                 healthProgress[0].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 100 && healthUpgrade == 1)
+            else if (GameManager.Instance.organicMatter >= 10 && healthUpgrade == 1)
             {
-                GameManager.Instance.organicMatter -= 100;
+                GameManager.Instance.organicMatter -= 10;
                 healthUpgrade++;
                 healthProgress[1].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 220 && healthUpgrade == 2)
+            else if (GameManager.Instance.organicMatter >= 15 && healthUpgrade == 2)
             {
-                GameManager.Instance.organicMatter -= 220;
+                GameManager.Instance.organicMatter -= 15;
                 healthUpgrade++;
                 healthProgress[2].color = new Color32(0, 255, 0, 255);
             }
-            else if (GameManager.Instance.organicMatter >= 300 && healthUpgrade == 3)
+            else if (GameManager.Instance.organicMatter >= 20 && healthUpgrade == 3)
             {
-                GameManager.Instance.organicMatter -= 300;
+                GameManager.Instance.organicMatter -= 20;
                 healthUpgrade++;
                 healthProgress[3].color = new Color32(0, 255, 0, 255);
             }

@@ -132,7 +132,7 @@ MonoBehaviour:
   hitpoints: 0
   maxHitpoints: 100
   healthBar: {fileID: 9116473694152901615}
-  naturalLifespan: 30
+  naturalLifespan: 150
 --- !u!61 &1842763946
 BoxCollider2D:
   m_ObjectHideFlags: 0

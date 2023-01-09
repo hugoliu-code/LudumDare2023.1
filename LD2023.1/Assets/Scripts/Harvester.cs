@@ -21,23 +21,23 @@ public class Harvester : MonoBehaviour
 
         if(canvasCon.harvestUpgrade == 0)
         {
-            harvestingTime = 2f;
+            harvestingTime = 1.2f;
         }
         if (canvasCon.harvestUpgrade == 1)
         {
-            harvestingTime = 1.9f;
+            harvestingTime = 1.1f;
         }
         if (canvasCon.harvestUpgrade == 2)
         {
-            harvestingTime = 1.8f;
+            harvestingTime = 1f;
         }
         if (canvasCon.harvestUpgrade == 3)
         {
-            harvestingTime = 1.7f;
+            harvestingTime = 0.9f;
         }
         if (canvasCon.harvestUpgrade == 4)
         {
-            harvestingTime = 1.6f;
+            harvestingTime = 0.8f;
         }
     }
     private void Target()

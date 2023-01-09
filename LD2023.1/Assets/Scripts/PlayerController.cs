@@ -92,23 +92,23 @@ public class PlayerController : MonoBehaviour
         //Movement
         if (canvasCon.movementUpgrade == 0)
         {
-            speed = 5;
+            speed = 2.5f;
         }
         if (canvasCon.movementUpgrade == 1)
         {
-            speed = 6;
+            speed = 2.6f;
         }
         if (canvasCon.movementUpgrade == 2)
         {
-            speed = 7;
+            speed = 2.7f;
         }
         if (canvasCon.movementUpgrade == 3)
         {
-            speed = 8;
+            speed = 2.8f;
         }
         if (canvasCon.movementUpgrade == 4)
         {
-            speed = 10;
+            speed = 3;
         }
 
         //Health
