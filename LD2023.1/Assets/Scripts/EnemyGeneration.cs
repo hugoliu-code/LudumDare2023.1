@@ -7,11 +7,14 @@ public class EnemyGeneration : MonoBehaviour
     [SerializeField] GameObject basicEnemy;
     [SerializeField] float spawnRadius;
     [SerializeField] GameObject player;
+    private float startTime;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(SpawnWave(20, 30, 90, 1f));
+        //StartCoroutine(SpawnWave(20, 30, 90, 1f));
+        startTime = Time.time;
+        StartCoroutine(MediumSpawns());
     }
 
     // Update is called once per frame
@@ -19,7 +22,17 @@ public class EnemyGeneration : MonoBehaviour
     {
         
     }
+    IEnumerator MediumSpawns()
+    {
+        yield return new WaitForSeconds(15);
+        while(Time.time - startTime < 666)
+        {
+            yield return new WaitForSeconds(Random.Range(20, 30));
+            Debug.Log("Spawning: " + (int)((Time.time - startTime) / 60) * 5 + 5);
 
+            StartCoroutine(SpawnWave((int)((Time.time - startTime) / 60) * 5+5, Random.Range(0, 360), Random.Range(0, 360), 2));
+        }
+    }
     //spawn a wave of a certain number of enemies, in a certain range (a range of degrees), at a certain spsed (spawns per second)
     IEnumerator SpawnWave(int number, float range, float direction, float speed)
     {

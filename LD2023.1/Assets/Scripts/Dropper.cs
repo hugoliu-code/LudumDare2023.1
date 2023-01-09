@@ -12,9 +12,6 @@ public class Dropper : MonoBehaviour
     public GameObject turret;
     public GameObject lure;
 
-    [SerializeField] float lureLifespan;
-    [SerializeField] float turretLifespan;
-    [SerializeField] float harvesterLifespan;
 
     // Start is called before the first frame update
     void Start()
@@ -31,20 +28,17 @@ public class Dropper : MonoBehaviour
     {
         GameObject HarvesterIns = Instantiate(harvester, player.position, player.rotation);
         HarvesterIns.GetComponent<Rigidbody2D>().AddForce(HarvesterIns.transform.right* 1000000);
-        Destroy(HarvesterIns, harvesterLifespan);
     }
 
     public void DropTurret()
     {
         GameObject TurretIns = Instantiate(turret, player.position, player.rotation);
         TurretIns.GetComponent<Rigidbody2D>().AddForce(TurretIns.transform.right*2500000);
-        Destroy(TurretIns, turretLifespan);
     }
 
     public void DropLure()
     {
         GameObject LureIns = Instantiate(lure, player.position, player.rotation);
         LureIns.GetComponent<Rigidbody2D>().AddForce(LureIns.transform.right * 2500000);
-        Destroy(LureIns, turretLifespan);
     }
 }

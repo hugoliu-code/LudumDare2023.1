@@ -10,7 +10,7 @@ public class Resource : MonoBehaviour
     bool ichorNear = false;
     bool boneNear = false;
     bool rubyNear = false;
-    private int resource = 50;
+    private int resource = 100;
     // Start is called before the first frame update
     void Start()
     {

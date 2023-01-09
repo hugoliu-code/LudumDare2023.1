@@ -23,6 +23,13 @@ public class CanvasController : MonoBehaviour
     public int pierceUpgrade = 0;
     public int healthUpgrade = 0;
     public int harvestUpgrade = 0;
+
+    //Costs of Buildings
+    [SerializeField] int[] turretCost;
+    [SerializeField] int[] harvesterCost;
+    [SerializeField] int[] lureCost;
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,29 +43,29 @@ public class CanvasController : MonoBehaviour
     }
     public void DropTurret()
     {
-        if (GameManager.Instance.bone >= 5 && GameManager.Instance.ichor >= 10)
+        if (GameManager.Instance.bone >= turretCost[1] && GameManager.Instance.ichor >= turretCost[0])
         {
             dropper.DropTurret();
-            GameManager.Instance.bone -= 5;
-            GameManager.Instance.ichor -= 10;
+            GameManager.Instance.bone -= turretCost[1];
+            GameManager.Instance.ichor -= turretCost[0];
         }
     }
     public void DropHarvester()
     {
-        if (GameManager.Instance.bone >= 5 && GameManager.Instance.ichor >= 5)
+        if (GameManager.Instance.bone >= harvesterCost[1] && GameManager.Instance.ichor >= harvesterCost[0])
         {
             dropper.DropHarvester();
-            GameManager.Instance.bone -= 5;
-            GameManager.Instance.ichor -= 5;
+            GameManager.Instance.bone -= harvesterCost[1];
+            GameManager.Instance.ichor -= harvesterCost[0];
         }
 
     }
     public void DropLure()
     {
-        if (GameManager.Instance.bone >= 20)
+        if (GameManager.Instance.bone >= lureCost[1])
         {
             dropper.DropLure();
-            GameManager.Instance.bone -= 20;
+            GameManager.Instance.bone -= lureCost[1];
         }
 
     }

@@ -21,11 +21,11 @@ public class ChaserEnemy : MonoBehaviour
             if (currentTurret.transform.position.x < gameObject.transform.position.x)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
-                Debug.Log("left");
+
             }
             else
             {
-                Debug.Log("right");
+
                 transform.localScale = new Vector3(1, 1, 1);
             }
         }
@@ -34,11 +34,11 @@ public class ChaserEnemy : MonoBehaviour
             if(playerTransform.position.x<gameObject.transform.position.x)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
-                Debug.Log("left");
+
             }
             else
             {
-                Debug.Log("right");
+
                 transform.localScale = new Vector3(1, 1, 1);
             }
         }

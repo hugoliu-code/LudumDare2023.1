@@ -22,6 +22,7 @@ public class Turret : MonoBehaviour
     public float hitpoints;
     public float maxHitpoints;
     public TurretHealthBar healthBar;
+    [SerializeField] float naturalLifespan;
 
     // Start is called before the first frame update
     void Start()
@@ -30,17 +31,23 @@ public class Turret : MonoBehaviour
         hitpoints = maxHitpoints;
         healthBar.SetHealth(hitpoints, maxHitpoints);
     }
+    private void Update()
+    {
+        if (hitpoints <= 0)
+        {
+            Destroy(gameObject);
+        }
+        healthBar.SetHealth(hitpoints, maxHitpoints);
+        hitpoints -= (Time.deltaTime/naturalLifespan)*maxHitpoints;
+        TurretAI();
+    }
     public void TurretTakeHit(float damage)
     {
         if(invincible == false)
         {
             StartCoroutine(Invincible());
             hitpoints -= damage;
-            healthBar.SetHealth(hitpoints, maxHitpoints);
-            if (hitpoints <= 0)
-            {
-                Destroy(gameObject);
-            }
+
         }
     }
 
@@ -65,10 +72,7 @@ public class Turret : MonoBehaviour
         target = enemies[smallestIndex].transform;
         }
     }
-    void Update()
-    {
-        TurretAI();
-    }
+
 
     private void TurretAI()
     {
