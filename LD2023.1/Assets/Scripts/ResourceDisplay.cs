@@ -107,7 +107,7 @@ public class ResourceDisplay : MonoBehaviour
 
         //Main Gaim
         organicMatter.text = "" + GameManager.Instance.organicMatter;
-        health.text = "" + GameManager.Instance.playerHealth;
+        health.text = "" + GameManager.Instance.playerHealth + "x";
         ruby.text = "" + GameManager.Instance.ruby;
         ichor.text = "" + GameManager.Instance.ichor;
         bone.text = "" + GameManager.Instance.bone;
