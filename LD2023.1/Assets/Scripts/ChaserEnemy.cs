@@ -66,7 +66,15 @@ public class ChaserEnemy : MonoBehaviour
                 turret.TurretTakeHit(10);
             }
         }
-        if(collision.gameObject.tag == "Lure")
+        if (collision.gameObject.tag == "Cannon")
+        {
+            Turret turret = collision.collider.GetComponent<Turret>();
+            if (turret)
+            {
+                turret.TurretTakeHit(10);
+            }
+        }
+        if (collision.gameObject.tag == "Lure")
         {
             Lure lure = collision.collider.GetComponent<Lure>();
             if (lure)

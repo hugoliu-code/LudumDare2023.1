@@ -11,6 +11,7 @@ TagManager:
   - Lure
   - Matter
   - Bomb
+  - Cannon
   layers:
   - Default
   - TransparentFX
