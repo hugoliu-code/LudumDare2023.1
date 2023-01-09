@@ -305,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   bullet: {fileID: 376027902172223488, guid: ba13aa4f7d5d3434a881e963c540baff, type: 3}
-  fireRate: 5
+  fireRate: 4
   force: 300
   gun: {fileID: 7031103834925776650}
   shootPoint: {fileID: 2697302972520166662}
