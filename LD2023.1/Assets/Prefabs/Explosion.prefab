@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f2dbd01511abb49aaf30032befd5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionDamage: 50
+  explosionDamage: 20
   sound: {fileID: -434216009119309304}
 --- !u!50 &1190752050775741594
 Rigidbody2D:
@@ -98,7 +98,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 77978d511a56e4c4ea8b744756aa3971, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.629
   m_Pitch: 1
   Loop: 0
   Mute: 0

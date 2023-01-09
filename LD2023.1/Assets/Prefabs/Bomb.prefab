@@ -292,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1190752050775741606, guid: 1e9d6b31e19c64f4cbd35422a40dc87b, type: 3}
   hitpoints: 0
-  maxHitpoints: 50
+  maxHitpoints: 20
   healthBar: {fileID: 3549599091818626649}
 --- !u!50 &3549599092691880065
 Rigidbody2D:
