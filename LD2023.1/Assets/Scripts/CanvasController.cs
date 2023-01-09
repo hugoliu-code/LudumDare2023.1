@@ -52,10 +52,10 @@ public class CanvasController : MonoBehaviour
     }
     public void DropBomb()
     {
-        if (GameManager.Instance.bone >= bombCost[1] && GameManager.Instance.ichor >= bombCost[0])
+        if (GameManager.Instance.ruby >= bombCost[2] && GameManager.Instance.ichor >= bombCost[0])
         {
             dropper.DropBomb();
-            GameManager.Instance.bone -= bombCost[1];
+            GameManager.Instance.ruby -= bombCost[2];
             GameManager.Instance.ichor -= bombCost[0];
         }
     }
