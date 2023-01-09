@@ -23,6 +23,7 @@ public class Turret : MonoBehaviour
     public float maxHitpoints;
     public TurretHealthBar healthBar;
     [SerializeField] float naturalLifespan;
+    [SerializeField] AudioSource gunshot;
 
     // Start is called before the first frame update
     void Start()
@@ -113,6 +114,7 @@ public class Turret : MonoBehaviour
     {
         GameObject BulletIns = Instantiate(bullet, shootPoint.position, Quaternion.identity);
         BulletIns.GetComponent<Rigidbody2D>().AddForce(direction * force);
+        gunshot.PlayOneShot(gunshot.clip);
         Destroy(BulletIns, 0.5f);
     }
 

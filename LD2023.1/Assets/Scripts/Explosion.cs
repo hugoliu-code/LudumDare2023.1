@@ -5,10 +5,12 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public int explosionDamage;
+    [SerializeField] AudioSource sound;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(DelayedDestroy());
+        sound.PlayOneShot(sound.clip);
     }
 
     // Update is called once per frame
