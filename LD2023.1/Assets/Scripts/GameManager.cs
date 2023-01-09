@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,10 +35,12 @@ public class GameManager : MonoBehaviour
         if(playerHealth <= 0)
         {
             //Load the death menu
+            SceneManager.LoadScene(2);
         }
         if(Time.time-startTime > 300)
         {
             //load the win screen
+            SceneManager.LoadScene(3);
         }
     }
 }
