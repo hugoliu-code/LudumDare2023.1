@@ -35,15 +35,15 @@ public class ResourceDisplay : MonoBehaviour
         }
         if(canvasController.movementUpgrade == 1)
         {
-            movementPrice.text = "" + 80;
+            movementPrice.text = "" + 30;
         }
         if (canvasController.movementUpgrade == 2)
         {
-            movementPrice.text = "" + 200;
+            movementPrice.text = "" + 40;
         }
         if (canvasController.movementUpgrade == 3)
         {
-            movementPrice.text = "" + 300;
+            movementPrice.text = "" + 50;
         }
         if (canvasController.movementUpgrade == 4)
         {
@@ -52,11 +52,11 @@ public class ResourceDisplay : MonoBehaviour
         //Pierce
         if(canvasController.pierceUpgrade == 0)
         {
-            piercePrice.text = "" + 100;
+            piercePrice.text = "" + 50;
         }
         if (canvasController.pierceUpgrade == 1)
         {
-            piercePrice.text = "" + 200;
+            piercePrice.text = "" + 100;
         }
         if (canvasController.pierceUpgrade == 2)
         {
@@ -65,19 +65,19 @@ public class ResourceDisplay : MonoBehaviour
         //Health
         if(canvasController.healthUpgrade == 0)
         {
-            healthPrice.text = "" + 50;
+            healthPrice.text = "" + 20;
         }
         if (canvasController.healthUpgrade == 1)
         {
-            healthPrice.text = "" + 100;
+            healthPrice.text = "" + 30;
         }
         if (canvasController.healthUpgrade == 2)
         {
-            healthPrice.text = "" + 220;
+            healthPrice.text = "" + 40;
         }
         if (canvasController.healthUpgrade == 3)
         {
-            healthPrice.text = "" + 300;
+            healthPrice.text = "" + 50;
         }
         if (canvasController.healthUpgrade == 4)
         {
@@ -90,15 +90,15 @@ public class ResourceDisplay : MonoBehaviour
         }
         if (canvasController.harvestUpgrade == 1)
         {
-            harvestPrice.text = "" + 80;
+            harvestPrice.text = "" + 40;
         }
         if (canvasController.harvestUpgrade == 2)
         {
-            harvestPrice.text = "" + 210;
+            harvestPrice.text = "" + 50;
         }
         if (canvasController.harvestUpgrade == 3)
         {
-            harvestPrice.text = "" + 320;
+            harvestPrice.text = "" + 60;
         }
         if (canvasController.harvestUpgrade == 4)
         {

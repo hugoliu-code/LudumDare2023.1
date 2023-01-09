@@ -234,7 +234,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -91, y: -126}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 56.25, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111081990
 MonoBehaviour:
@@ -1553,7 +1553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &547942430
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3086,9 +3086,9 @@ MonoBehaviour:
   pierceUpgrade: 0
   healthUpgrade: 0
   harvestUpgrade: 0
-  turretCost: 
-  harvesterCost: 
-  lureCost: 
+  turretCost: 050000000a00000000000000
+  harvesterCost: 140000001400000000000000
+  lureCost: 0000000014000000
 --- !u!114 &1093813000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3209,7 +3209,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -97, y: 115}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1111112077
 MonoBehaviour:
@@ -6065,7 +6065,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 83, y: -124}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 56.25, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110012258
 MonoBehaviour:
