@@ -11,7 +11,8 @@ public class Dropper : MonoBehaviour
     public GameObject harvester;
     public GameObject turret;
     public GameObject lure;
-
+    public GameObject cannon;
+    public GameObject bomb;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,16 @@ public class Dropper : MonoBehaviour
     void Update()
     {
         
+    }
+    public void DropBomb()
+    {
+        GameObject BombIns = Instantiate(bomb, player.position, player.rotation);
+        BombIns.GetComponent<Rigidbody2D>().AddForce(BombIns.transform.right * 1000000);
+    }
+    public void DropCannon()
+    {
+        GameObject CannonIns = Instantiate(cannon, player.position, player.rotation);
+        CannonIns.GetComponent<Rigidbody2D>().AddForce(CannonIns.transform.right * 1000000);
     }
     public void DropHarvester()
     {

@@ -279,7 +279,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 111081991}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1093812999}
+        m_TargetAssemblyTypeName: CanvasController, Assembly-CSharp
+        m_MethodName: DropBomb
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &111081991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1553,7 +1565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &547942430
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3028,6 +3040,8 @@ MonoBehaviour:
   turretCost: 050000000a00000000000000
   harvesterCost: 140000001400000000000000
   lureCost: 0000000014000000
+  bombCost: 0a0000000a00000000000000
+  cannonCost: 
 --- !u!114 &1093813000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3193,7 +3207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1111112078}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1111112078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3692,6 +3718,8 @@ MonoBehaviour:
   harvester: {fileID: 6109673852492365363, guid: da8c2613a1862094190d329ffd2c82ee, type: 3}
   turret: {fileID: 1719901209673888270, guid: 5d909398c90d86b48a3b00c7ac7d2e3e, type: 3}
   lure: {fileID: 6387882427654563306, guid: c6c0af12503829643b1de36d6fd9b326, type: 3}
+  cannon: {fileID: 361173123294818741, guid: f3dddeb6c6a331f469bae3134f18edd4, type: 3}
+  bomb: {fileID: 3549599092691880077, guid: 384f7adab2ec9e44cac1165a23b0cad2, type: 3}
 --- !u!4 &1419074482
 Transform:
   m_ObjectHideFlags: 0

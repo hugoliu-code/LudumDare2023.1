@@ -28,6 +28,8 @@ public class CanvasController : MonoBehaviour
     [SerializeField] int[] turretCost;
     [SerializeField] int[] harvesterCost;
     [SerializeField] int[] lureCost;
+    [SerializeField] int[] bombCost;
+    [SerializeField] int[] cannonCost;
    
 
     // Start is called before the first frame update
@@ -40,6 +42,24 @@ public class CanvasController : MonoBehaviour
     void Update()
     {
         CanvasControl();
+    }
+    public void DropCannon()
+    {
+        if (GameManager.Instance.bone >= bombCost[1] && GameManager.Instance.ichor >= bombCost[0])
+        {
+            dropper.DropBomb();
+            GameManager.Instance.bone -= bombCost[1];
+            GameManager.Instance.ichor -= bombCost[0];
+        }
+    }
+    public void DropBomb()
+    {
+        if (GameManager.Instance.bone >= bombCost[1] && GameManager.Instance.ichor >= bombCost[0])
+        {
+            dropper.DropBomb();
+            GameManager.Instance.bone -= bombCost[1];
+            GameManager.Instance.ichor -= bombCost[0];
+        }
     }
     public void DropTurret()
     {
