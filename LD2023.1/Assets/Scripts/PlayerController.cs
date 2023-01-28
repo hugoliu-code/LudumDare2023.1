@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool invincible;
 
+    public Sprint staminaBar;
+    public float stamina;
+    public float maxStamina = 100;
+    public float rechargeTime;
+    public float lossTime;
+    public bool isSprinting;
+
     private bool ticket0 = true;
     private bool ticket1 = true;
     private bool ticket2 = true;
@@ -19,10 +26,13 @@ public class PlayerController : MonoBehaviour
     private State state = State.idle;
 
     [SerializeField] float speed;
+    private float origSpeed;
 
 
     void Start()
     {
+        origSpeed = speed;
+        stamina = maxStamina;
         canvasCon = FindObjectOfType<CanvasController>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -33,6 +43,7 @@ public class PlayerController : MonoBehaviour
         anim.SetInteger("state", (int)state);
         Movement();
         AnimationState();
+        Sprint();
     }
   
     private void Movement()
@@ -92,23 +103,38 @@ public class PlayerController : MonoBehaviour
         //Movement
         if (canvasCon.movementUpgrade == 0)
         {
-            speed = 2.5f;
+            maxStamina = 75f;
+            lossTime = 20f;
+            rechargeTime = 10f;
+            staminaBar.Sprinting(stamina, maxStamina);
         }
         if (canvasCon.movementUpgrade == 1)
         {
-            speed = 2.6f;
+            maxStamina = 100f;
+            lossTime = 20f;
+            rechargeTime = 15f;
+            staminaBar.Sprinting(stamina, maxStamina);
         }
         if (canvasCon.movementUpgrade == 2)
         {
-            speed = 2.7f;
+            maxStamina = 100f;
+            lossTime = 15f;
+            rechargeTime = 15f;
+            staminaBar.Sprinting(stamina, maxStamina);
         }
         if (canvasCon.movementUpgrade == 3)
         {
-            speed = 2.8f;
+            maxStamina = 125f;
+            lossTime = 15f;
+            rechargeTime = 20f;
+            staminaBar.Sprinting(stamina, maxStamina);
         }
         if (canvasCon.movementUpgrade == 4)
         {
-            speed = 3;
+            maxStamina = 150f;
+            lossTime = 10f;
+            rechargeTime = 25f;
+            staminaBar.Sprinting(stamina, maxStamina);
         }
 
         //Health
@@ -141,7 +167,45 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Invincible()
     {
         invincible = true;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         invincible = false;
+    }
+
+    private void Sprint()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            stamina -= Time.deltaTime * lossTime;
+            staminaBar.Sprinting(stamina, maxStamina);
+            isSprinting = true;
+            if (stamina < 0)
+            {
+                stamina = 0;
+                isSprinting = false;
+            }
+        }
+        else if(state != State.running)
+        {
+            stamina += Time.deltaTime * rechargeTime;
+            isSprinting = false;
+            if(stamina > maxStamina)
+            {
+                stamina = maxStamina;
+            }
+            staminaBar.Sprinting(stamina, maxStamina);
+        }
+        else
+        {
+            isSprinting = false;
+        }
+
+        if (isSprinting)
+        {
+            speed = origSpeed * 1.5f;
+        }
+        else
+        {
+            speed = origSpeed;
+        }
     }
 }
